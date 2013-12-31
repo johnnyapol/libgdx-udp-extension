@@ -9,7 +9,7 @@ The goals of this project is to create a simple UDP library that abstracts as mu
 
 Dependencies 
 ====================
-The current dependencies are LibGDX. This can be very easily reported to other libraries or made standalone. If I get enough requests I'll put up a version that doesn't depend on LibGDX.
+The current dependencies are LibGDX. This can be very easily be ported to other libraries or made standalone. If I get enough requests I'll put up a version that doesn't depend on LibGDX.
 
 Support
 ====================
