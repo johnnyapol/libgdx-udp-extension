@@ -5,7 +5,7 @@ An experimental UDP extension for the LibGDX library. Can easily be ported to ot
 
 Goals
 ====================
-The goals of this project is to create a simple UDP library that abstracts as much as possible away from the networking part making the developer's life easier and limiting the requirement of the knowledge in the area. 
+The goals of this project is to create a simple UDP library that abstracts as much as possible away from the networking part making the developer's life easier and limiting the requirement of the knowledge in the area. This also was designed in mind to limit allocations to conserve memory.
 
 Dependencies 
 ====================
