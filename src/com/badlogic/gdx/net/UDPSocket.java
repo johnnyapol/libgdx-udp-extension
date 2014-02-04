@@ -13,40 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+
 package com.badlogic.gdx.net;
 
 import java.io.IOException;
 
 import com.badlogic.gdx.utils.Disposable;
 
-/**
- * UDPSocket - Class for communicating using the UDP protocol The default
- * implementation uses java.net packages, we also allow you to write your own
- * implementation if you are not happy with it
+/** UDPSocket - Class for communicating using the UDP protocol The default implementation uses java.net packages, we also allow you
+ * to write your own implementation if you are not happy with it
  * 
- * @author Unkn0wn0ne
- */
+ * @author Unkn0wn0ne */
 public abstract class UDPSocket implements Disposable {
 
-	/**
-	 * Sends data to the specified host in the datagram
+	/** Sends data to the specified host in the datagram
 	 * @param d The datagram containing the data and connection information
-	 * @throws IOException If there is an IO error sending the data
-	 */
-	public abstract void sendData(Datagram d) throws IOException;
+	 * @throws IOException If there is an IO error sending the data */
+	public abstract void sendData (Datagram d) throws IOException;
 
-	/**
-	 * Receives data from the socket
+	/** Receives data from the socket
 	 * @return A datagram containing the sender information and data
-	 * @throws IOException If there is an IO error receiving the data
-	 */
-	public abstract Datagram receiveData() throws IOException;
+	 * @throws IOException If there is an IO error receiving the data */
+	public abstract Datagram receiveData () throws IOException;
 
-	/**
-	 * Creates the UDPSocket with the specified configuration.
+	/** Creates the UDPSocket with the specified configuration.
 	 * @param port The port to connect to or listen on
 	 * @param hints The configuration hints
-	 * @return A UDPSocket that is configured and ready to use.
-	 */
-	public abstract UDPSocket create(int port, UDPSocketHints hints);
+	 * @return A UDPSocket that is configured and ready to use. */
+	public abstract UDPSocket create (int port, UDPSocketHints hints);
 }

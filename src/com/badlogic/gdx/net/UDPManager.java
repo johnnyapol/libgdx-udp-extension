@@ -13,44 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+
 package com.badlogic.gdx.net;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Application.ApplicationType;
 
-/**
- * Sets the udp implementation for the platform, or allows you to create a custom implementation.
- * @author Unkn0wn0ne
- */
+/** Sets the udp implementation for the platform, or allows you to create a custom implementation.
+ * @author Unkn0wn0ne */
 public class UDPManager {
 
 	private UDPSocket impl;
 
-	/**
-	 * Creates the UDP manager using the default implementation
-	 */
-	public UDPManager() {
+	/** Creates the UDP manager using the default implementation */
+	public UDPManager () {
 		if (Gdx.app.getType() == ApplicationType.WebGL) {
 			throw new UnsupportedOperationException("Not implemented.");
 		}
 		this.impl = new UDPSocketImpl();
 	}
-	
-	/**
-	 * Creates the UDP manager using the specified alternate implementation
-	 * @param socket
-	 */
-	public UDPManager(UDPSocket socket) {
+
+	/** Creates the UDP manager using the specified alternate implementation
+	 * @param socket */
+	public UDPManager (UDPSocket socket) {
 		this.impl = socket;
 	}
 
-	/**
-	 * Creates and configures a UDP socket from the implementation used
+	/** Creates and configures a UDP socket from the implementation used
 	 * @param port The port to listen and/or send on
 	 * @param hints The UDPSocketHints to configure the socket. Set to null to use defaults
-	 * @return A UDPSocket configured and hopefully ready to go!
-	 */
-	public UDPSocket createNewUDPSocket(int port, UDPSocketHints hints) {
+	 * @return A UDPSocket configured and hopefully ready to go! */
+	public UDPSocket createNewUDPSocket (int port, UDPSocketHints hints) {
 		if (hints == null) {
 			hints = new UDPSocketHints(); // Use defaults.
 		}

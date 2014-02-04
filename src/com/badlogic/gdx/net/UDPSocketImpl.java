@@ -27,14 +27,11 @@ import com.badlogic.gdx.net.UDPSocket;
 import com.badlogic.gdx.net.UDPSocketHints;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 
-/**
- * The Java-based implementation of {@link UDPSocket} This works on Desktop
- * (lwjgl, jglfw), iOS (via RoboVM), and Android. Future backends with out
- * java.net support will NOT work with this. Developers: please do not use this
- * directly, use {@link UDPSocket} instead for compatibility reasons.
+/** The Java-based implementation of {@link UDPSocket} This works on Desktop (lwjgl, jglfw), iOS (via RoboVM), and Android. Future
+ * backends with out java.net support will NOT work with this. Developers: please do not use this directly, use {@link UDPSocket}
+ * instead for compatibility reasons.
  * 
- * @author Unkn0wn0ne
- */
+ * @author Unkn0wn0ne */
 public class UDPSocketImpl extends UDPSocket {
 
 	private DatagramSocket socket = null;
@@ -42,7 +39,7 @@ public class UDPSocketImpl extends UDPSocket {
 	private Datagram datagram = null;
 	private InetAddress address = null;
 
-	private void applySocketHints(UDPSocketHints hints) throws SocketException {
+	private void applySocketHints (UDPSocketHints hints) throws SocketException {
 		this.socket.setSoTimeout(hints.SO_TIMEOUT);
 		this.socket.setTrafficClass(hints.TRAFFIC_CLASS);
 		this.socket.setReuseAddress(hints.SO_REUSEADDR);
@@ -52,7 +49,7 @@ public class UDPSocketImpl extends UDPSocket {
 	}
 
 	@Override
-	public void dispose() {
+	public void dispose () {
 		try {
 			if (this.socket != null) {
 				this.socket.close();
@@ -67,10 +64,8 @@ public class UDPSocketImpl extends UDPSocket {
 	}
 
 	@Override
-	public void sendData(Datagram datagram) throws IOException {
-		if (this.address == null
-				|| !datagram.getAddress().equalsIgnoreCase(
-						this.address.getHostAddress())) {
+	public void sendData (Datagram datagram) throws IOException {
+		if (this.address == null || !datagram.getAddress().equalsIgnoreCase(this.address.getHostAddress())) {
 			this.address = InetAddress.getByName(datagram.getAddress());
 		}
 		packet.setAddress(this.address);
@@ -81,7 +76,7 @@ public class UDPSocketImpl extends UDPSocket {
 	}
 
 	@Override
-	public Datagram receiveData() throws IOException {
+	public Datagram receiveData () throws IOException {
 		this.socket.receive(packet);
 		datagram.setAddress(packet.getAddress().getHostAddress());
 		datagram.setData(packet.getData());
@@ -91,11 +86,10 @@ public class UDPSocketImpl extends UDPSocket {
 	}
 
 	@Override
-	public UDPSocket create(int port, UDPSocketHints hints) {
+	public UDPSocket create (int port, UDPSocketHints hints) {
 		try {
 			this.socket = new DatagramSocket(port);
-			this.packet = new DatagramPacket(new byte[hints.RECEIVE_LENGTH],
-					hints.RECEIVE_LENGTH);
+			this.packet = new DatagramPacket(new byte[hints.RECEIVE_LENGTH], hints.RECEIVE_LENGTH);
 			applySocketHints(hints);
 		} catch (Exception e) {
 			throw new GdxRuntimeException(e);
