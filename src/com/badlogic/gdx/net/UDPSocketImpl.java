@@ -32,7 +32,8 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
  * instead for compatibility reasons.
  * 
  * @author Unkn0wn0ne */
-public class UDPSocketImpl extends UDPSocket {
+ */
+protected class UDPSocketImpl extends UDPSocket {
 
 	private DatagramSocket socket = null;
 	private DatagramPacket packet = null;

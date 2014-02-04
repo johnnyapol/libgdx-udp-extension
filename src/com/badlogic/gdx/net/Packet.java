@@ -61,6 +61,9 @@ public class Packet implements Disposable {
 	 * @param d The datagram to convert */
 	public void readDatagram (Datagram d) {
 		this.datagram = d;
+		if (dis != null) {
+			dis.close();
+		}
 		this.bais = new ByteArrayInputStream(d.getData());
 		this.dis = new DataInputStream(this.bais);
 	}
