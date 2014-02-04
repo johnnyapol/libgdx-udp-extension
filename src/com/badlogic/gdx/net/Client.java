@@ -50,7 +50,6 @@ public class Client implements Disposable {
 		this.socket = new UDPManager(impl).createNewUDPSocket(port, hints);
 		this.address = address;
 		this.port = port;
-		this.packet = new Packet(); 
 	}
 
 	/** Sends a datagram to the server the client is connected to
