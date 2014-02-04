@@ -1,11 +1,11 @@
 libgdx-udp-extension
 ====================
 
-An experimental UDP extension for the LibGDX library. Can easily be ported to other libraries.
+An experimental UDP extension for the LibGDX library aimed at doing its job with as little allocations as possible. Can easily be ported to other libraries. 
 
 Goals
 ====================
-The goals of this project is to create a simple UDP library that abstracts as much as possible away from the networking part making the developer's life easier and limiting the requirement of the knowledge in the area. This also was designed in mind to limit allocations to conserve memory.
+The goals of this project is to create a simple UDP library that abstracts as much as possible away from the networking part making the developer's life easier and limiting the requirement of the knowledge in the area. It makes working with UDP a lot like TCP in the sense. This also was designed in mind to limit allocations to conserve memory. 
 
 Dependencies 
 ====================
@@ -13,4 +13,4 @@ The current dependencies are LibGDX. This can be very easily be ported to other 
 
 Support
 ====================
-Issues can be placed on the issue tracker. The best way of contacting me would be on IRC.
+Issues can be placed on the issue tracker. The best way of contacting me would be on IRC. Feature requests will be looked over and implemented if needed.
