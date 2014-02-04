@@ -58,8 +58,12 @@ public class Packet implements Disposable {
 
 	/** Converts the datagram into a packet for use of the read methods in this class
 	 * 
-	 * @param d The datagram to convert */
-	public void readDatagram (Datagram d) {
+	 * @param d The datagram to convert
+	 * @throws IOException If there is an error reading the datagram */
+	public void readDatagram (Datagram d) throws IOException {
+		if (dis != null) {
+			dis.close();
+		}
 		this.datagram = d;
 		this.bais = new ByteArrayInputStream(d.getData());
 		this.dis = new DataInputStream(this.bais);
@@ -220,12 +224,10 @@ public class Packet implements Disposable {
 	public int getPort () {
 		return this.datagram.getPort();
 	}
-	
-	/**
-	 * Resets the packet to a brand new state
-	 * @throws IOException If there is an error reseting the packet state
-	 */
-	public void reset() throws IOException {
+
+	/** Resets the packet to a brand new state
+	 * @throws IOException If there is an error reseting the packet state */
+	public void reset () throws IOException {
 		if (this.baos != null) {
 			this.baos.flush();
 			this.baos.close();
