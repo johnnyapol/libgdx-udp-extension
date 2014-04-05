@@ -32,6 +32,7 @@ public class ServerTest {
 	}
 
 	public static void run (int port, UDPSocketHints hints, UDPSocket impl) {
+		// init variables
 		Server server = null;
 		String addr = "";
 		if (impl != null) {
@@ -42,14 +43,8 @@ public class ServerTest {
 
 		Packet packet = null;
 		try {
+			// recieve packet from server, retrieve information
 			packet = server.recievePacket();
-			packet.writeInt(1);
-			packet.writeBoolean(true);
-			packet.writeBytes("Test".getBytes());
-			packet.writeDouble(1.1d);
-			packet.writeFloat(2.2f);
-			packet.writeShort((short)1);
-			packet.writeString("Hello, world!");
 			addr = packet.getAddress();
 			int i = packet.readInt();
 			boolean b = packet.readBoolean();
@@ -59,6 +54,7 @@ public class ServerTest {
 			float f = packet.readFloat();
 			short s = packet.readShort();
 			String str = packet.readString();
+			// check to make sure we got the data we expected
 			if (i == 1 && b == true && bytes == "Test".getBytes() && dec == 1.1d && f == 2.2f && s == (short)1
 				&& str == "Hello, world!") {
 				// All is right with the world
@@ -72,7 +68,9 @@ public class ServerTest {
 		if (packet == null) {
 			packet = new Packet();
 		}
+		
 		try {
+			// create response packet and send
 			packet.writeBoolean(true);
 			server.sendPacket(packet, addr);
 		} catch (IOException e) {
