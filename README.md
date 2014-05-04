@@ -1,7 +1,7 @@
 libgdx-udp-extension
 ====================
 
-An experimental UDP extension for the LibGDX library aimed at doing its job with as little allocations as possible. Can easily be ported to other libraries. 
+An experimental UDP extension for the LibGDX library aimed at doing its job with as little allocations as possible. It can easily be ported to other libraries. 
 
 Goals
 ====================
@@ -14,3 +14,7 @@ The current dependencies are LibGDX. This can be very easily be ported to other 
 Support
 ====================
 Issues can be placed on the issue tracker. The best way of contacting me would be on IRC. Feature requests will be looked over and implemented if needed.
+
+License
+====================
+The libgdx-udp-extension or gdx-udp is licensed under the Apache 2.0 License. This simply means you are free to use the library for commercial and non-commercial projects! If you modify the source, you are also not required to share the modifications or contribute them back upstream (but if you find a criticial bug, it would be nice to contribute a fix back!).
