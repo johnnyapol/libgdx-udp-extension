@@ -90,6 +90,7 @@ class UDPSocketImpl extends UDPSocket {
 		try {
 			this.socket = new DatagramSocket(port);
 			this.packet = new DatagramPacket(new byte[hints.RECEIVE_LENGTH], hints.RECEIVE_LENGTH);
+			this.datagram = new Datagram();
 			applySocketHints(hints);
 		} catch (Exception e) {
 			throw new GdxRuntimeException(e);

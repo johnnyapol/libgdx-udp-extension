@@ -206,7 +206,7 @@ public class Packet implements Disposable {
 			this.dis.close();
 			this.dos.close();
 		} catch (Exception e) {
-			Gdx.app.error("ERROR", "Failed to dispose Packet", e);
+			// Oh well, we'll set it to null soon anyway. :)
 		}
 		this.datagram = null;
 		this.dis = null;
