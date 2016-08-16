@@ -1,9 +1,6 @@
 libgdx-udp-extension
 ====================
 
-UPDATE: SUBMIT YOUR COMMENTS HERE!: https://github.com/libgdx/libgdx/pull/2209
-===============================================================================
-
 An experimental UDP extension for the LibGDX library aimed at doing its job with as little allocations as possible. It can easily be ported to other libraries. 
 
 Goals
